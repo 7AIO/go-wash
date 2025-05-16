@@ -37,7 +37,13 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 120px;
+            height: 80px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-wave svg {
+                height: 120px;
+            }
         }
 
         .hero-wave .shape-fill {
@@ -53,7 +59,12 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 80px;
+            height: 50px;
+        }
+        @media (min-width: 768px) {
+            .section-wave-top svg {
+                height: 80px;
+            }
         }
         .section-wave-top .shape-fill {
             fill: #eef1fc;
@@ -69,41 +80,70 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 80px;
+            height: 50px;
+        }
+        @media (min-width: 768px) {
+            .section-wave-bottom svg {
+                height: 80px;
+            }
         }
         .section-wave-bottom .shape-fill {
             fill: #eef1fc;
         }
 
         .service-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(38, 74, 193, 0.25);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(38, 74, 193, 0.25);
         }
 
         .whatsapp-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 999;
             animation: pulse 2s infinite;
+            width: 60px;
+            height: 60px;
+        }
+        @media (min-width: 768px) {
+            .whatsapp-btn {
+                width: 64px;
+                height: 64px;
+                bottom: 30px;
+                right: 30px;
+            }
         }
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         #map {
-            height: 450px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 3px solid #264ac1;
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+            border: 2px solid #264ac1;
         }
+        @media (min-width: 768px) {
+            #map {
+                height: 450px;
+                border-radius: 16px;
+                border-width: 3px;
+            }
+        }
+
         .testimonial-card {
             background: white;
-            border-left: 5px solid #264ac1;
+            border-left: 4px solid #264ac1;
         }
+        @media (min-width: 768px) {
+            .testimonial-card {
+                border-left-width: 5px;
+            }
+        }
+
         .nav-link {
             position: relative;
             padding-bottom: 4px;
@@ -121,65 +161,132 @@
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
+
+        /* Mobile menu animation */
+        @keyframes slide-down {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .mobile-menu {
+            animation: slide-down 0.3s ease-out;
+        }
+
+        /* Improved touch targets */
+        .touch-target {
+            padding: 12px 16px;
+        }
+        @media (min-width: 768px) {
+            .touch-target {
+                padding: 8px 16px;
+            }
+        }
+
+        /* Hero section adjustments */
+        .hero-content {
+            padding-top: 80px;
+            padding-bottom: 100px;
+        }
+        @media (min-width: 768px) {
+            .hero-content {
+                padding-top: 96px;
+                padding-bottom: 128px;
+            }
+        }
+
+        /* Service card height consistency */
+        .service-card {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card-content {
+            flex: 1;
+        }
+
+        /* Better spacing for mobile */
+        .section-padding {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+        }
+
+        /* Larger buttons on mobile */
+        .btn-mobile {
+            padding: 14px 24px;
+            font-size: 16px;
+        }
+        @media (min-width: 768px) {
+            .btn-mobile {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
-    <nav class="bg-primary text-white py-4 px-6 shadow-xl sticky top-0 z-[998]">
+    <!-- Navigation -->
+    <nav class="bg-primary text-white py-3 px-4 md:py-4 md:px-6 shadow-xl sticky top-0 z-[998]">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#home" class="flex items-center">
                 <img src="./images/go-wash-logo.jpeg" alt="Go Wash Logo" class="h-10 w-10 mr-2 rounded-md">
-                <span class="text-2xl font-bold tracking-tight">Go<span class="font-light">Wash</span></span>
+                <span class="text-xl md:text-2xl font-bold tracking-tight">Go<span class="font-light">Wash</span></span>
             </a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="nav-link hover:text-blue-200 transition duration-300">Beranda</a>
-                <a href="#services" class="nav-link hover:text-blue-200 transition duration-300">Layanan</a>
-                <a href="#why-us" class="nav-link hover:text-blue-200 transition duration-300">Keunggulan</a>
-                <a href="#location" class="nav-link hover:text-blue-200 transition duration-300">Lokasi</a>
-                <a href="#testimonials" class="nav-link hover:text-blue-200 transition duration-300">Testimoni</a>
+            <div class="hidden md:flex space-x-4 md:space-x-6">
+                <a href="#home" class="nav-link hover:text-blue-200 transition duration-300 touch-target">Beranda</a>
+                <a href="#services" class="nav-link hover:text-blue-200 transition duration-300 touch-target">Layanan</a>
+                <a href="#why-us" class="nav-link hover:text-blue-200 transition duration-300 touch-target">Keunggulan</a>
+                <a href="#location" class="nav-link hover:text-blue-200 transition duration-300 touch-target">Lokasi</a>
+                <a href="#testimonials" class="nav-link hover:text-blue-200 transition duration-300 touch-target">Testimoni</a>
             </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button id="menu-btn" class="text-white focus:outline-none touch-target">
+                    <i class="fas fa-bars text-xl md:text-2xl"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-700">
-            <a href="#home" class="block py-3 px-6 hover:bg-blue-600 transition">Beranda</a>
-            <a href="#services" class="block py-3 px-6 hover:bg-blue-600 transition">Layanan</a>
-            <a href="#why-us" class="block py-3 px-6 hover:bg-blue-600 transition">Keunggulan</a>
-            <a href="#location" class="block py-3 px-6 hover:bg-blue-600 transition">Lokasi</a>
-            <a href="#testimonials" class="block py-3 px-6 hover:bg-blue-600 transition">Testimoni</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-700 mobile-menu">
+            <a href="#home" class="block py-3 px-6 hover:bg-blue-600 transition touch-target">Beranda</a>
+            <a href="#services" class="block py-3 px-6 hover:bg-blue-600 transition touch-target">Layanan</a>
+            <a href="#why-us" class="block py-3 px-6 hover:bg-blue-600 transition touch-target">Keunggulan</a>
+            <a href="#location" class="block py-3 px-6 hover:bg-blue-600 transition touch-target">Lokasi</a>
+            <a href="#testimonials" class="block py-3 px-6 hover:bg-blue-600 transition touch-target">Testimoni</a>
         </div>
     </nav>
 
-    <section id="home" class="relative bg-primary text-white pt-24 pb-32 overflow-hidden">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-3/5 lg:w-1/2 mb-12 md:mb-0 md:pr-10" data-aos="fade-right" data-aos-delay="100">
-                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-primary text-white hero-content overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-3/5 lg:w-1/2 mb-8 md:mb-0 md:pr-6 lg:pr-10" data-aos="fade-right" data-aos-delay="100">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 leading-tight">
                     "One Shoot, <span class="text-blue-300">One Clean</span>"
                 </h1>
-                <h2 class="text-xl md:text-2xl font-medium mb-8 text-blue-100">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-medium mb-4 md:mb-6 text-blue-100">
                     Go Wash: Solusi Cuci Motor Cepat, Bersih, dan Profesional di Bandung.
                 </h2>
-                <p class="text-lg mb-10 text-blue-200">
+                <p class="text-base md:text-lg mb-6 md:mb-8 text-blue-200">
                     Manjakan motor Anda dengan layanan cuci terbaik. Dari penjemputan premium hingga cuci detail di tempat, kami siap membuat motor Anda kinclong kembali!
                 </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                     <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20layanan%20Premium%20Go%20Wash"
-                       class="bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
-                        <i class="fab fa-whatsapp mr-3"></i> Pesan Premium
+                       class="bg-white text-primary font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base btn-mobile">
+                        <i class="fab fa-whatsapp mr-2 md:mr-3"></i> Pesan Premium
                     </a>
                     <!-- Replace "hover:text-[#264ac1]" with "hover:text-primary" if not using Tailwind CSS CDN -->
                     <a href="#services"
-                       class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-[#264ac1] transition duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
-                        Lihat Semua Layanan
+                       class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-[#264ac1] transition duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base btn-mobile">
+                        Lihat Layanan
                     </a>
                 </div>
             </div>
-            <div class="md:w-2/5 lg:w-1/2" data-aos="fade-left" data-aos-delay="300">
+            <div class="md:w-2/5 lg:w-1/2 mt-8 md:mt-0" data-aos="fade-left" data-aos-delay="300">
                 <img src="https://images.unsplash.com/photo-1667323944451-cdc20d7d474a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                      alt="Motorcycle being washed"
-                     class="rounded-2xl shadow-2xl w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-500">
+                     class="rounded-xl md:rounded-2xl shadow-xl w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-500">
             </div>
         </div>
         <div class="hero-wave">
@@ -189,69 +296,70 @@
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Layanan Unggulan Kami</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Pilih paket yang paling sesuai untuk kebutuhan motor kesayangan Anda.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-12 md:py-20 bg-white section-padding">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4">Layanan Unggulan Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">Pilih paket yang paling sesuai untuk kebutuhan motor kesayangan Anda.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 border-4 border-blue-500 relative" data-aos="zoom-in-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 bg-yellow-400 text-blue-800 text-sm font-semibold px-4 py-1.5 rounded-bl-xl z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+                <div class="service-card bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all duration-300 border-4 border-blue-500 relative" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-blue-800 text-xs md:text-sm font-semibold px-3 py-1 md:px-4 md:py-1.5 rounded-bl-lg md:rounded-bl-xl z-10">
                         <i class="fas fa-star mr-1"></i> Paling Populer
                     </div>
-                    <div class="bg-primary py-6 px-6 text-center">
-                        <h3 class="text-2xl font-bold text-white">Premium</h3>
-                        <p class="text-3xl font-bold text-blue-200 mt-1">Rp 25.000</p>
+                    <div class="bg-primary py-5 md:py-6 px-4 md:px-6 text-center">
+                        <h3 class="text-xl md:text-2xl font-bold text-white">Premium</h3>
+                        <p class="text-2xl md:text-3xl font-bold text-blue-200 mt-1">Rp 25.000</p>
                     </div>
-                    <div class="p-8">
-                        <ul class="space-y-4 text-gray-700 mb-8">
-                            <li class="flex items-start"><i class="fas fa-truck-pickup text-primary text-xl mr-3 mt-1"></i> Lengkap Antar-Jemput</li>
-                            <li class="flex items-start"><i class="fas fa-house-user text-primary text-xl mr-3 mt-1"></i> Dijemput & Diantar ke Rumah</li>
-                            <li class="flex items-start"><i class="fas fa-wand-sparkles text-primary text-xl mr-3 mt-1"></i> Perawatan Detail & Ekstra Kilap</li>
-                            <li class="flex items-start"><i class="fas fa-shield-alt text-primary text-xl mr-3 mt-1"></i> Proteksi Tambahan (Opsional)</li>
+                    <div class="p-6 md:p-8 service-card-content">
+                        <ul class="space-y-3 md:space-y-4 text-gray-700 mb-6 md:mb-8">
+                            <li class="flex items-start"><i class="fas fa-truck-pickup text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Lengkap Antar-Jemput</li>
+                            <li class="flex items-start"><i class="fas fa-house-user text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Dijemput & Diantar ke Rumah</li>
+                            <li class="flex items-start"><i class="fas fa-wand-sparkles text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Perawatan Detail & Ekstra Kilap</li>
+                            <li class="flex items-start"><i class="fas fa-shield-alt text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Proteksi Tambahan (Opsional)</li>
                         </ul>
                         <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20layanan%20Premium%20Go%20Wash"
-                           class="block w-full bg-primary text-white text-center py-3 px-4 rounded-lg hover:bg-primary-dark transition duration-300 font-semibold text-lg">
+                           class="block w-full bg-primary text-white text-center py-2 md:py-3 px-4 rounded-lg hover:bg-primary-dark transition duration-300 font-semibold text-base md:text-lg">
                             Pesan Premium
                         </a>
                     </div>
                 </div>
 
-                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300" data-aos="zoom-in-up" data-aos-delay="200">
-                    <div class="bg-blue-400 py-6 px-6 text-center">
-                        <h3 class="text-2xl font-bold text-white">Large</h3>
-                        <p class="text-3xl font-bold text-blue-100 mt-1">Rp 20.000</p>
+                <div class="service-card bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all duration-300" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="bg-blue-400 py-5 md:py-6 px-4 md:px-6 text-center">
+                        <h3 class="text-xl md:text-2xl font-bold text-white">Large</h3>
+                        <p class="text-2xl md:text-3xl font-bold text-blue-100 mt-1">Rp 20.000</p>
                     </div>
-                    <div class="p-8">
-                        <ul class="space-y-4 text-gray-700 mb-8">
-                            <li class="flex items-start"><i class="fas fa-motorcycle text-primary text-xl mr-3 mt-1"></i> Untuk Motor Besar / Sport</li>
-                            <li class="flex items-start"><i class="fas fa-store text-primary text-xl mr-3 mt-1"></i> Cuci Langsung di Tempat</li>
-                            <li class="flex items-start"><i class="fas fa-soap text-primary text-xl mr-3 mt-1"></i> Cuci Standar Berkualitas</li>
-                            <li class="flex items-start"><i class="fas fa-tachometer-alt text-primary text-xl mr-3 mt-1"></i> Proses Cepat & Efisien</li>
+                    <div class="p-6 md:p-8 service-card-content">
+                        <ul class="space-y-3 md:space-y-4 text-gray-700 mb-6 md:mb-8">
+                            <li class="flex items-start"><i class="fas fa-motorcycle text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Untuk Motor Besar / Sport</li>
+                            <li class="flex items-start"><i class="fas fa-store text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Cuci Langsung di Tempat</li>
+                            <li class="flex items-start"><i class="fas fa-soap text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Cuci Standar Berkualitas</li>
+                            <li class="flex items-start"><i class="fas fa-tachometer-alt text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Proses Cepat & Efisien</li>
                         </ul>
                         <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20layanan%20Large%20Go%20Wash"
-                           class="block w-full bg-blue-500 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold text-lg">
+                           class="block w-full bg-blue-500 text-white text-center py-2 md:py-3 px-4 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold text-base md:text-lg">
                             Pesan Large
                         </a>
                     </div>
                 </div>
 
-                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300" data-aos="zoom-in-up" data-aos-delay="300">
-                    <div class="bg-blue-400 py-6 px-6 text-center">
-                        <h3 class="text-2xl font-bold text-white">Regular</h3>
-                        <p class="text-3xl font-bold text-blue-100 mt-1">Rp 15.000</p>
+                <div class="service-card bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden transition-all duration-300" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="bg-blue-400 py-5 md:py-6 px-4 md:px-6 text-center">
+                        <h3 class="text-xl md:text-2xl font-bold text-white">Regular</h3>
+                        <p class="text-2xl md:text-3xl font-bold text-blue-100 mt-1">Rp 15.000</p>
                     </div>
-                    <div class="p-8">
-                        <ul class="space-y-4 text-gray-700 mb-8">
-                            <li class="flex items-start"><i class="fas fa-motorcycle text-primary text-xl mr-3 mt-1"></i> Motor Kecil / Standar</li>
-                            <li class="flex items-start"><i class="fas fa-store text-primary text-xl mr-3 mt-1"></i> Cuci Langsung di Tempat</li>
-                            <li class="flex items-start"><i class="fas fa-spray-can-sparkles text-primary text-xl mr-3 mt-1"></i> Cuci Bersih Menyeluruh</li>
-                            <li class="flex items-start"><i class="fas fa-thumbs-up text-primary text-xl mr-3 mt-1"></i> Harga Paling Terjangkau</li>
+                    <div class="p-6 md:p-8 service-card-content">
+                        <ul class="space-y-3 md:space-y-4 text-gray-700 mb-6 md:mb-8">
+                            <li class="flex items-start"><i class="fas fa-motorcycle text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Motor Kecil / Standar</li>
+                            <li class="flex items-start"><i class="fas fa-store text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Cuci Langsung di Tempat</li>
+                            <li class="flex items-start"><i class="fas fa-spray-can-sparkles text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Cuci Bersih Menyeluruh</li>
+                            <li class="flex items-start"><i class="fas fa-thumbs-up text-primary text-lg md:text-xl mr-3 mt-0.5"></i> Harga Paling Terjangkau</li>
                         </ul>
                         <a href="https://wa.me/6281234567890?text=Saya%20ingin%20pesan%20layanan%20Regular%20Go%20Wash"
-                           class="block w-full bg-blue-500 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold text-lg">
+                           class="block w-full bg-blue-500 text-white text-center py-2 md:py-3 px-4 rounded-lg hover:bg-blue-600 transition duration-300 font-semibold text-base md:text-lg">
                             Pesan Regular
                         </a>
                     </div>
@@ -260,59 +368,60 @@
         </div>
     </section>
 
+    <!-- Why Us Section -->
     <div class="section-wave-top">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,60 C200,0 380,120 600,60 C820,0 1000,120 1200,60 L1200,120 L0,120 Z" class="shape-fill"></path>
         </svg>
     </div>
-    <section id="why-us" class="py-20 bg-eef1fc">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Mengapa Pilih Go Wash?</h2>
-                <p class="text-gray-700 max-w-2xl mx-auto text-lg">Kami memberikan lebih dari sekedar cuci motor biasa.</p>
+    <section id="why-us" class="py-12 md:py-20 bg-eef1fc section-padding">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4">Mengapa Pilih Go Wash?</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto text-base md:text-lg">Kami memberikan lebih dari sekedar cuci motor biasa.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fas fa-medal"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Kualitas Premium</h3>
-                    <p class="text-gray-600 text-center">Hasil bersih maksimal, motor Anda akan terlihat seperti baru setiap saat.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Kualitas Premium</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Hasil bersih maksimal, motor Anda akan terlihat seperti baru setiap saat.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Harga Terjangkau</h3>
-                    <p class="text-gray-600 text-center">Layanan terbaik dengan harga yang bersahabat, tanpa menguras kantong.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Harga Terjangkau</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Layanan terbaik dengan harga yang bersahabat, tanpa menguras kantong.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fas fa-shipping-fast"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Antar-Jemput Praktis</h3>
-                    <p class="text-gray-600 text-center">Layanan Premium kami termasuk penjemputan dan pengantaran motor Anda.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Antar-Jemput Praktis</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Layanan Premium kami termasuk penjemputan dan pengantaran motor Anda.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fas fa-users-cog"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Tim Profesional</h3>
-                    <p class="text-gray-600 text-center">Dikerjakan oleh staf berpengalaman yang ahli dalam merawat motor.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Tim Profesional</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Dikerjakan oleh staf berpengalaman yang ahli dalam merawat motor.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fa-solid fa-shield"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Aman & Terpercaya</h3>
-                    <p class="text-gray-600 text-center">Kami menjaga motor Anda seperti milik kami sendiri selama proses pencucian.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Aman & Terpercaya</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Kami menjaga motor Anda seperti milik kami sendiri selama proses pencucian.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
-                    <div class="flex items-center justify-center bg-blue-100 text-primary w-16 h-16 rounded-full mb-6 mx-auto text-3xl">
+                <div class="bg-white p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg hover:shadow-lg md:hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-center justify-center bg-blue-100 text-primary w-14 h-14 md:w-16 md:h-16 rounded-full mb-4 md:mb-6 mx-auto text-2xl md:text-3xl">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 text-center">Cepat & Efisien</h3>
-                    <p class="text-gray-600 text-center">Motto kami "One Shoot, One Clean" berarti hemat waktu Anda dengan hasil optimal.</p>
+                    <h3 class="text-lg md:text-xl font-bold text-primary mb-2 md:mb-3 text-center">Cepat & Efisien</h3>
+                    <p class="text-gray-600 text-sm md:text-base text-center">Motto kami "One Shoot, One Clean" berarti hemat waktu Anda dengan hasil optimal.</p>
                 </div>
             </div>
         </div>
@@ -323,36 +432,37 @@
         </svg>
     </div>
 
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-20 bg-white section-padding">
+        <div class="container mx-auto px-4 md:px-6">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-6 lg:pr-10" data-aos="fade-right">
                     <img src="./images/go-wash-logo.jpeg"
                          alt="Tentang Go Wash"
-                         class="rounded-2xl shadow-xl w-full max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300">
+                         class="rounded-xl md:rounded-2xl shadow-lg md:shadow-xl w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300">
                 </div>
-                <div class="md:w-1/2 md:pl-10" data-aos="fade-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Tentang Go Wash</h2>
-                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                <div class="md:w-1/2 md:pl-6 lg:pl-10" data-aos="fade-left">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 md:mb-6">Tentang Go Wash</h2>
+                    <p class="text-gray-700 mb-3 md:mb-4 text-base md:text-lg leading-relaxed">
                         Go Wash lahir dari kecintaan terhadap dunia otomotif, khususnya sepeda motor. Kami percaya bahwa setiap motor berhak mendapatkan perawatan terbaik agar selalu tampil prima dan awet.
                     </p>
-                    <p class="text-gray-700 mb-4 text-lg leading-relaxed">
+                    <p class="text-gray-700 mb-3 md:mb-4 text-base md:text-lg leading-relaxed">
                         Dengan komitmen pada kualitas, harga terjangkau, dan pelayanan yang ramah, Go Wash hadir sebagai partner terpercaya Anda dalam merawat kebersihan motor. Kami menggunakan produk pembersih berkualitas dan teknik pencucian yang aman untuk semua jenis motor.
                     </p>
-                    <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                    <p class="text-gray-700 mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
                         Bergabunglah dengan ratusan pelanggan puas kami dan rasakan bedanya!
                     </p>
-                    <div class="flex space-x-5">
+                    <div class="flex space-x-4 md:space-x-5">
                         <a href="#"
-                            class="bg-blue-100 text-primary w-14 h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            class="bg-blue-100 text-primary w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-xl md:text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="bg-blue-100 text-primary w-14 h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            class="bg-blue-100 text-primary w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-xl md:text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                             <i class="fab fa-tiktok"></i>
                         </a>
                         <a href="#"
-                            class="bg-blue-100 text-primary w-14 h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                            class="bg-blue-100 text-primary w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full hover:bg-blue-200 transition-colors duration-300 text-xl md:text-2xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>
@@ -361,33 +471,34 @@
         </div>
     </section>
 
+    <!-- Location Section -->
     <div class="section-wave-top">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,60 C200,0 380,120 600,60 C820,0 1000,120 1200,60 L1200,120 L0,120 Z" class="shape-fill" style="fill: #FFFFFF;"></path>
         </svg>
     </div>
-    <section id="location" class="py-20 bg-eef1fc">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Temukan Kami</h2>
-                <p class="text-gray-700 max-w-2xl mx-auto text-lg">Kunjungi workshop kami di Bandung atau hubungi kami untuk layanan Premium.</p>
+    <section id="location" class="py-12 md:py-20 bg-eef1fc section-padding">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4">Temukan Kami</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto text-base md:text-lg">Kunjungi workshop kami di Bandung atau hubungi kami untuk layanan Premium.</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+            <div class="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 items-stretch">
                 <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="100">
                     <div id="map" class="w-full"></div>
                 </div>
                 <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="200">
-                    <div class="bg-white p-8 rounded-2xl shadow-xl h-full flex flex-col justify-between">
+                    <div class="bg-white p-6 md:p-8 rounded-xl md:rounded-2xl shadow-lg md:shadow-xl h-full flex flex-col justify-between">
                         <div>
-                            <h3 class="text-3xl font-bold text-primary mb-6">Go Wash Bandung</h3>
-                            <div class="space-y-5 text-gray-700 text-lg">
+                            <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">Go Wash Bandung</h3>
+                            <div class="space-y-4 md:space-y-5 text-gray-700 text-base md:text-lg">
                                 <div class="flex items-start">
-                                    <i class="fas fa-map-marker-alt text-primary text-2xl mt-1 mr-4 w-6 text-center"></i>
+                                    <i class="fas fa-map-marker-alt text-primary text-xl md:text-2xl mt-0.5 md:mt-1 mr-3 md:mr-4 w-5 md:w-6 text-center"></i>
                                     <p>Ps. Geger Kalong, Jl. Gegerkalong Tengah 7 No.55A, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153</p>
                                 </div>
                                 <div class="flex items-start">
-                                    <i class="fas fa-clock text-primary text-2xl mt-1 mr-4 w-6 text-center"></i>
+                                    <i class="fas fa-clock text-primary text-xl md:text-2xl mt-0.5 md:mt-1 mr-3 md:mr-4 w-5 md:w-6 text-center"></i>
                                     <div>
                                         <p class="font-semibold">Jam Operasional:</p>
                                         <p>Senin - Jumat: 08.00 - 20.00 WIB</p>
@@ -395,15 +506,15 @@
                                     </div>
                                 </div>
                                 <div class="flex items-start">
-                                    <i class="fas fa-phone-alt text-primary text-2xl mt-1 mr-4 w-6 text-center"></i>
+                                    <i class="fas fa-phone-alt text-primary text-xl md:text-2xl mt-0.5 md:mt-1 mr-3 md:mr-4 w-5 md:w-6 text-center"></i>
                                     <p>+62 812-3456-7890</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-8">
+                        <div class="mt-6 md:mt-8">
                             <a href="https://maps.app.goo.gl/2Lt3Pk1zL8N3UiU26"
                                target="_blank"
-                               class="inline-block w-full sm:w-auto bg-primary text-white py-3 px-8 rounded-lg hover:bg-primary-dark transition duration-300 text-lg font-semibold text-center">
+                               class="inline-block w-full sm:w-auto bg-primary text-white py-2 md:py-3 px-6 md:px-8 rounded-lg hover:bg-primary-dark transition duration-300 text-base md:text-lg font-semibold text-center">
                                 <i class="fas fa-directions mr-2"></i>Petunjuk Arah
                             </a>
                         </div>
@@ -418,61 +529,62 @@
         </svg>
     </div>
 
-    <section id="testimonials" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Kata Mereka Tentang Kami</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Testimoni asli dari pelanggan setia Go Wash.</p>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 md:py-20 bg-white section-padding">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4">Kata Mereka Tentang Kami</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">Testimoni asli dari pelanggan setia Go Wash.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-quote-left text-primary text-3xl opacity-50 mr-3"></i>
-                        <div class="text-yellow-400 text-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="testimonial-card p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-3 md:mb-4">
+                        <i class="fas fa-quote-left text-primary text-2xl md:text-3xl opacity-50 mr-2 md:mr-3"></i>
+                        <div class="text-yellow-400 text-lg md:text-xl">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"Layanan premiumnya sangat worth it! Motor dijemput dari rumah, dicuci dengan bersih, dan dikembalikan dalam kondisi seperti baru. Recommended banget!"</p>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base italic">"Layanan premiumnya sangat worth it! Motor dijemput dari rumah, dicuci dengan bersih, dan dikembalikan dalam kondisi seperti baru. Recommended banget!"</p>
                     <div class="flex items-center mt-auto">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer Andi" class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer Andi" class="w-12 h-12 md:w-14 md:h-14 rounded-full mr-3 md:mr-4 border-2 border-primary">
                         <div>
-                            <h4 class="font-bold text-gray-800 text-lg">Andi Pratama</h4>
-                            <p class="text-gray-500 text-sm">Pengguna Layanan Premium</p>
+                            <h4 class="font-bold text-gray-800 text-base md:text-lg">Andi Pratama</h4>
+                            <p class="text-gray-500 text-xs md:text-sm">Pengguna Layanan Premium</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                     <div class="flex items-center mb-4">
-                        <i class="fas fa-quote-left text-primary text-3xl opacity-50 mr-3"></i>
-                        <div class="text-yellow-400 text-xl">
+                <div class="testimonial-card p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                     <div class="flex items-center mb-3 md:mb-4">
+                        <i class="fas fa-quote-left text-primary text-2xl md:text-3xl opacity-50 mr-2 md:mr-3"></i>
+                        <div class="text-yellow-400 text-lg md:text-xl">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"Harga sangat terjangkau untuk kualitas yang diberikan. Motor saya yang besar dicuci dengan teliti dan hasilnya memuaskan. Akan rutin ke sini."</p>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base italic">"Harga sangat terjangkau untuk kualitas yang diberikan. Motor saya yang besar dicuci dengan teliti dan hasilnya memuaskan. Akan rutin ke sini."</p>
                     <div class="flex items-center mt-auto">
-                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Customer Siti" class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Customer Siti" class="w-12 h-12 md:w-14 md:h-14 rounded-full mr-3 md:mr-4 border-2 border-primary">
                         <div>
-                            <h4 class="font-bold text-gray-800 text-lg">Adam Muchtar</h4>
-                            <p class="text-gray-500 text-sm">Pengguna Layanan Large</p>
+                            <h4 class="font-bold text-gray-800 text-base md:text-lg">Adam Muchtar</h4>
+                            <p class="text-gray-500 text-xs md:text-sm">Pengguna Layanan Large</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                     <div class="flex items-center mb-4">
-                        <i class="fas fa-quote-left text-primary text-3xl opacity-50 mr-3"></i>
-                        <div class="text-yellow-400 text-xl">
+                <div class="testimonial-card p-6 md:p-8 rounded-lg md:rounded-xl shadow-md md:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                     <div class="flex items-center mb-3 md:mb-4">
+                        <i class="fas fa-quote-left text-primary text-2xl md:text-3xl opacity-50 mr-2 md:mr-3"></i>
+                        <div class="text-yellow-400 text-lg md:text-xl">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"Untuk harga 15 ribu, hasilnya sangat memuaskan. Pelayanan cepat dan ramah. Motor saya yang standar bersih sekali setelah dicuci di sini."</p>
+                    <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base italic">"Untuk harga 15 ribu, hasilnya sangat memuaskan. Pelayanan cepat dan ramah. Motor saya yang standar bersih sekali setelah dicuci di sini."</p>
                     <div class="flex items-center mt-auto">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer Budi" class="w-14 h-14 rounded-full mr-4 border-2 border-primary">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer Budi" class="w-12 h-12 md:w-14 md:h-14 rounded-full mr-3 md:mr-4 border-2 border-primary">
                         <div>
-                            <h4 class="font-bold text-gray-800 text-lg">Budi Santoso</h4>
-                            <p class="text-gray-500 text-sm">Pengguna Layanan Regular</p>
+                            <h4 class="font-bold text-gray-800 text-base md:text-lg">Budi Santoso</h4>
+                            <p class="text-gray-500 text-xs md:text-sm">Pengguna Layanan Regular</p>
                         </div>
                     </div>
                 </div>
@@ -480,97 +592,101 @@
         </div>
     </section>
 
-    <section class="py-20 bg-primary text-white relative overflow-hidden">
+    <!-- CTA Section -->
+    <section class="py-12 md:py-20 bg-primary text-white relative overflow-hidden section-padding">
         <div class="absolute inset-0 opacity-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="wavePattern" patternUnits="userSpaceOnUse" width="80" height="80" patternTransform="rotate(45)"><path d="M0 40 Q 20 0 40 40 T 80 40" stroke="white" stroke-width="2" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#wavePattern)"/></svg>
         </div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Siap Membuat Motor Anda Kinclong?</h2>
-            <p class="text-xl mb-10 max-w-2xl mx-auto text-blue-100" data-aos="fade-up" data-aos-delay="100">
+        <div class="container mx-auto px-4 md:px-6 text-center relative z-10">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6" data-aos="fade-up">Siap Membuat Motor Anda Kinclong?</h2>
+            <p class="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto text-blue-100" data-aos="fade-up" data-aos-delay="100">
                 Jangan tunda lagi! Pesan layanan Go Wash sekarang dan nikmati motor bersih mengkilap seperti baru. Klik tombol di bawah untuk langsung terhubung dengan kami via WhatsApp.
             </p>
             <div data-aos="fade-up" data-aos-delay="200">
                 <a href="https://wa.me/6281234567890?text=Halo%20Go%20Wash,%20saya%20tertarik%20dengan%20layanan%20cuci%20motornya."
-                   class="bg-white text-primary font-bold py-4 px-10 rounded-lg hover:bg-gray-100 transition duration-300 inline-flex items-center shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-xl">
-                    <i class="fab fa-whatsapp mr-3 text-2xl"></i> Pesan via WhatsApp
+                   class="bg-white text-primary font-bold py-3 px-6 md:py-4 md:px-10 rounded-lg hover:bg-gray-100 transition duration-300 inline-flex items-center shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-base md:text-lg btn-mobile">
+                    <i class="fab fa-whatsapp mr-2 md:mr-3 text-xl md:text-2xl"></i> Pesan via WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-300 py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 md:py-16">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
                 <div>
-                    <div class="flex items-center mb-4">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                    <div class="flex items-center mb-3 md:mb-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 10.586V6z" clip-rule="evenodd" />
                             <path d="M10 3C6.69 3 4 5.69 4 9c0 .98.24 1.89.64 2.7L3 14.07V15h.93L6.3 13.36A7.94 7.94 0 0010 15c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" opacity="0.3"/>
                         </svg>
-                        <span class="text-2xl font-bold text-white">Go<span class="font-light">Wash</span></span>
+                        <span class="text-xl md:text-2xl font-bold text-white">Go<span class="font-light">Wash</span></span>
                     </div>
-                    <p class="text-gray-400 mb-4 text-sm">"One Shoot, One Clean"</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">Layanan cuci motor profesional dengan harga terjangkau dan kualitas terbaik untuk motor kesayangan Anda.</p>
+                    <p class="text-gray-400 mb-3 md:mb-4 text-xs md:text-sm">"One Shoot, One Clean"</p>
+                    <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Layanan cuci motor profesional dengan harga terjangkau dan kualitas terbaik untuk motor kesayangan Anda.</p>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-5">Layanan Kami</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#services" class="text-gray-400 hover:text-primary transition">Premium</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-primary transition">Large</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-primary transition">Regular</a></li>
+                    <h3 class="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Layanan Kami</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Premium</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Large</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Regular</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-5">Tautan Cepat</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-primary transition">Beranda</a></li>
-                        <li><a href="#why-us" class="text-gray-400 hover:text-primary transition">Keunggulan</a></li>
-                        <li><a href="#location" class="text-gray-400 hover:text-primary transition">Lokasi</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-primary transition">Testimoni</a></li>
+                    <h3 class="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2 md:space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Beranda</a></li>
+                        <li><a href="#why-us" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Keunggulan</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Lokasi</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-primary transition text-xs md:text-sm touch-target">Testimoni</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-5">Hubungi Kami</h3>
-                    <ul class="space-y-3">
+                    <h3 class="text-base md:text-lg font-semibold text-white mb-3 md:mb-4">Hubungi Kami</h3>
+                    <ul class="space-y-2 md:space-y-3">
                         <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-400 text-sm">Jl. Gegerkalong Tengah 7 No.55A, Bandung</span>
+                            <i class="fas fa-map-marker-alt text-primary mt-0.5 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span class="text-gray-400 text-xs md:text-sm">Jl. Gegerkalong Tengah 7 No.55A, Bandung</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-400 text-sm">+62 812-3456-7890</span>
+                            <i class="fas fa-phone-alt text-primary mt-0.5 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span class="text-gray-400 text-xs md:text-sm">+62 812-3456-7890</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-400 text-sm">info@gowash.id</span>
+                            <i class="fas fa-envelope text-primary mt-0.5 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span class="text-gray-400 text-xs md:text-sm">info@gowash.id</span>
                         </li>
                     </ul>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-primary transition text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition text-xl"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition text-xl"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition text-xl"><i class="fab fa-youtube"></i></a>
+                    <div class="flex space-x-3 md:space-x-4 mt-4 md:mt-6">
+                        <a href="#" class="text-gray-400 hover:text-primary transition text-base md:text-xl touch-target"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition text-base md:text-xl touch-target"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition text-base md:text-xl touch-target"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition text-base md:text-xl touch-target"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-500 text-sm">© 2024 Go Wash. Dirancang dengan <i class="fas fa-heart text-primary"></i> untuk motor Anda.</p>
+            <div class="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center">
+                <p class="text-gray-500 text-xs md:text-sm">© 2024 Go Wash. Dirancang dengan <i class="fas fa-heart text-primary"></i> untuk motor Anda.</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Button -->
     <a href="https://wa.me/6281234567890?text=Halo%20Go%20Wash,%20saya%20ingin%20bertanya%20tentang%20layanan."
-        class="whatsapp-btn bg-green-500 text-white w-16 h-16 flex items-center justify-center rounded-full shadow-xl hover:bg-green-600 transition-all duration-300 transform hover:scale-110">
-        <i class="fab fa-whatsapp text-3xl"></i>
+        class="whatsapp-btn bg-green-500 text-white flex items-center justify-center rounded-full shadow-xl hover:bg-green-600 transition-all duration-300 transform hover:scale-110">
+        <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
     </a>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        // Initialize AOS animation
         AOS.init({
             duration: 800,
             easing: 'ease-in-out-quad',
@@ -578,15 +694,17 @@
             offset: 50
         });
 
+        // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
             if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('animate-slide-down');
+                mobileMenu.classList.add('mobile-menu');
             }
         });
 
+        // Close mobile menu when clicking on links
         const navLinks = document.querySelectorAll('#mobile-menu a, nav .md\\:flex a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -596,6 +714,7 @@
             });
         });
 
+        // Initialize map
         function initMap() {
             const mapCoordinates = [-6.8706, 107.5915];
             const map = L.map('map').setView(mapCoordinates, 16);
@@ -618,20 +737,27 @@
                 .openPopup();
         }
 
+        // Initialize map if element exists
         if (document.getElementById('map')) {
             initMap();
         }
 
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slide-down {
-                0% { opacity: 0; transform: translateY(-10px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            .animate-slide-down { animation: slide-down 0.3s ease-out; }
-            .leaflet-marker-icon.text-primary { filter: drop-shadow(2px 4px 6px #264ac180); color: #264ac1 !important; }
-        `;
-        document.head.append(style);
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
